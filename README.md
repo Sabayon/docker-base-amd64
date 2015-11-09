@@ -1,4 +1,4 @@
-# Sabayon base: a Docker Project #
+# Sabayon Base Docker image #
 
 
 The purpose of this project is to provide an image of Sabayon base.
