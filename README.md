@@ -1,6 +1,5 @@
 # Sabayon Base Docker image #
 
-
 The purpose of this project is to provide an image of Sabayon base.
 It is just a gentoo stage3 + entropy
 
