@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t sabayon/base-amd64 .
+    - docker pull sabayon/base-amd64
     - docker export $(docker run -i -t sabayon/base-amd64 true && docker ps -aq | xargs echo | cut -d ' ' -f 1) | docker import - sabayon/base-amd64-squashed
 
 test:
