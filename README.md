@@ -1,6 +1,9 @@
 # Sabayon Base Docker image #
 
 The purpose of this project is to provide an image of Sabayon base.
+
+A base image doesn't contain kernel, just the minimal stage3 of gentoo converted in Sabayon
+
 It is just a gentoo stage3 + entropy
 
 UPDATE: Images are also on Docker Hub [sabayon/base-amd64](https://registry.hub.docker.com/u/sabayon/base-amd64/) and the already squashed image, 
