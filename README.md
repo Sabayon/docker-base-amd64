@@ -1,5 +1,7 @@
 # Sabayon Base Docker image #
 
+[![Circle CI](https://circleci.com/gh/Sabayon/docker-base-amd64.svg?style=svg)](https://circleci.com/gh/Sabayon/docker-base-amd64)
+
 The purpose of this project is to provide an image of Sabayon base.
 
 A base image doesn't contain kernel, just the minimal stage3 of gentoo converted in Sabayon
