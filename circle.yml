@@ -5,8 +5,8 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker pull sabayon/base-amd64-layered
-    - docker run -i -t sabayon/base-amd64-layered true 
+    - docker build -t sabayon/base-amd64 .
+    - docker run -i -t sabayon/base-amd64 true
     - docker export $(docker ps -aq | xargs echo | cut -d ' ' -f 1) | docker import - sabayon/base-amd64-squashed
     - docker export $(docker ps -aq | xargs echo | cut -d ' ' -f 1) | docker import - sabayon/base-amd64
 test:
