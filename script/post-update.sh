@@ -107,20 +107,10 @@ FILES_TO_REMOVE=(
     "/usr/portage/licenses"
 )
 
-mkdir -p /etc/portage/repos.conf/
-echo "[DEFAULT]
-main-repo = gentoo
-
-[gentoo]
-location = /usr/portage
-sync-type = rsync
-sync-uri = rsync://rsync.europe.gentoo.org/gentoo-portage
-" > /etc/portage/repos.conf/gentoo.conf
-
 # Upgrading packages
 
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
-equo u && \
+equo up && equo u && \
 echo -5 | equo conf update
 
 # Cleanup
