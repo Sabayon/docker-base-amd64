@@ -7,7 +7,7 @@ ENV LC_ALL=en_US.UTF-8
 
 # Upgrading portage and installing necessary packages
 RUN rm -rf '/usr/portage/metadata/timestamp.chk' && \
-	 emerge --sync --quiet && \
+	 emerge --sync && \
 	layman -S && layman -a sabayon
 
 # Configure the sabayon box, installing equo setting up locales
