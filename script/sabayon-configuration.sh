@@ -7,6 +7,8 @@ for f in /etc/env.d/02locale /etc/locale.conf; do
     echo LC_ALL=en_US.UTF-8 >> "${f}"
 done
 
+echo "en_US.UTF-8 UTF-8 " >> /etc/locale.gen &&  locale-gen &&  eselect locale set en_US.utf8 && env-update && source /etc/profile
+
 # Defyning /usr/local/portage configuration
 mkdir /usr/local/portage
 mkdir -p /usr/local/portage/metadata/
@@ -35,12 +37,10 @@ eselect python set python2.7
 # Specifying a gentoo profile
 eselect profile set default/linux/amd64/13.0/desktop
 
-# default to opendns for next stage(s)
+# default for next stage(s)
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 # set default shell
 chsh -s /bin/bash
 
 rm -rf /etc/make.profile
-
-

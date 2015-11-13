@@ -3,7 +3,6 @@ FROM sabayon/gentoo-stage3-base-amd64
 MAINTAINER mudler <mudler@sabayonlinux.org>
 
 # Set locales to en_US.UTF-8
-RUN echo "en_US.UTF-8 UTF-8 " >> /etc/locale.gen &&  locale-gen &&  eselect locale set en_US.utf8 && env-update && source /etc/profile
 ENV LC_ALL=en_US.UTF-8
 
 # Upgrading portage and installing necessary packages
@@ -43,5 +42,3 @@ WORKDIR /root
 
 # Define default command.
 CMD ["bash"]
-
-
