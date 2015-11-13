@@ -7,7 +7,7 @@ for f in /etc/env.d/02locale /etc/locale.conf; do
     echo LC_ALL=en_US.UTF-8 >> "${f}"
 done
 
-echo "en_US.UTF-8 UTF-8 " >> /etc/locale.gen &&  locale-gen &&  eselect locale set en_US.utf8 && env-update && source /etc/profile
+#echo "en_US.UTF-8 UTF-8 " >> /etc/locale.gen &&  locale-gen &&  eselect locale set en_US.utf8 && env-update && source /etc/profile
 
 # Defyning /usr/local/portage configuration
 mkdir /usr/local/portage

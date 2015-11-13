@@ -117,6 +117,11 @@ sync-type = rsync
 sync-uri = rsync://rsync.europe.gentoo.org/gentoo-portage
 " > /etc/portage/repos.conf/gentoo.conf
 
+# Regenerating locales
+
+locale-gen
+
+
 # Upgrading packages
 
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
