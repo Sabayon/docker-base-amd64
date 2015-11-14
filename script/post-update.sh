@@ -113,6 +113,8 @@ rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/l
 equo up && equo u && \
 echo -5 | equo conf update
 
+equo i app-misc/ca-certificates
+
 # Cleanup
 equo rm --deep --configfiles --force-system "${PACKAGES_TO_REMOVE[@]}"
 
