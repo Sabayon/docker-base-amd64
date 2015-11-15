@@ -113,17 +113,17 @@ rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/l
 equo up && equo u && \
 echo -5 | equo conf update
 
-# ensuring all is right
-equo deptest
-equo libtest
-
-equo i app-misc/ca-certificates
-
 # Cleanup
 equo rm --deep --configfiles --force-system "${PACKAGES_TO_REMOVE[@]}"
 
 # Remove compilation tools
 equo rm --nodeps --force-system automake bison yacc gcc localepurge
+
+# ensuring all is right
+equo deptest
+equo libtest
+
+equo i app-misc/ca-certificates
 
 # Writing package list file
 equo q list installed -qv > /etc/sabayon-pkglist
