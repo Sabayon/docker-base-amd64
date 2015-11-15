@@ -113,6 +113,10 @@ rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/l
 equo up && equo u && \
 echo -5 | equo conf update
 
+# ensuring all is right
+equo deptest
+equo libtest
+
 equo i app-misc/ca-certificates
 
 # Cleanup
