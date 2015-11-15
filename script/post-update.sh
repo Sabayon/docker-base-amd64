@@ -107,8 +107,12 @@ FILES_TO_REMOVE=(
     "/usr/portage/licenses"
 )
 
-# Upgrading packages
+# emerge preserved rebuild that are left behind in the next stages. this happens because first stage isn't automated (yet) and the next one that regenerate locales
+# is run in dockerhub (which is really slow and prone to fails) instead of circleci
+emerge @preserved-rebuild
+equo rescue spmsync
 
+# Upgrading packages
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
 equo up && equo u && \
 echo -5 | equo conf update
