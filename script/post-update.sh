@@ -111,7 +111,6 @@ FILES_TO_REMOVE=(
 # is run in dockerhub (which is really slow and prone to fails) instead of circleci
 emerge-webrsync
 emerge @preserved-rebuild
-emerge @preserved-rebuild 
 equo rescue spmsync
 pushd /usr/portage/
 ls | grep -v 'profiles' | grep -v 'metadata' | xargs rm -rf
