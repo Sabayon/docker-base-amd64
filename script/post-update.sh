@@ -123,7 +123,7 @@ equo rm --nodeps --force-system automake bison yacc gcc localepurge
 equo deptest
 equo libtest
 
-equo i app-misc/ca-certificates
+equo i app-misc/ca-certificates app-crypt/gnupg
 
 # Writing package list file
 equo q list installed -qv > /etc/sabayon-pkglist
