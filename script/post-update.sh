@@ -125,29 +125,6 @@ equo libtest
 
 equo i app-misc/ca-certificates app-crypt/gnupg
 
-# Configure glibc locale, ship image with all locales enabled
-# or anaconda will crash if the user selects an unsupported one
-echo '
-# /etc/locale.gen: list all of the locales you want to have on your system
-#
-# The format of each line:
-# <locale> <charmap>
-#
-# Where <locale> is a locale located in /usr/share/i18n/locales/ and
-# where <charmap> is a charmap located in /usr/share/i18n/charmaps/.
-#
-# All blank lines and lines starting with # are ignored.
-#
-# For the default list of supported combinations, see the file:
-# /usr/share/i18n/SUPPORTED
-#
-# Whenever glibc is emerged, the locales listed here will be automatically
-# rebuilt for you.  After updating this file, you can simply run `locale-gen`
-# yourself instead of re-emerging glibc.
-' > /etc/locale.gen
-cat /usr/share/i18n/SUPPORTED >> /etc/locale.gen
-/usr/sbin/locale-gen
-
 # Writing package list file
 equo q list installed -qv > /etc/sabayon-pkglist
 
