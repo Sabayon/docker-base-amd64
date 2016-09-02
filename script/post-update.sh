@@ -125,6 +125,8 @@ equo libtest
 
 equo i app-misc/ca-certificates app-crypt/gnupg
 
+equo security oscheck || exit 1
+
 # Writing package list file
 equo q list installed -qv > /etc/sabayon-pkglist
 
