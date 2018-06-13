@@ -89,7 +89,12 @@ equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo && e
 echo -5 | equo conf update
 
 # Cleanup
-equo rm --deep --configfiles --force-system "${PACKAGES_TO_REMOVE[@]}"
+# Handling install/removal of packages specified in env
+for i in "${PACKAGES_TO_REMOVE[@]}"
+do
+	echo "===== Remove $i ====="
+    equo rm --deep --configfiles --force-system "$i"
+done
 
 # Remove compilation tools
 equo rm --nodeps --force-system automake bison yacc gcc localepurge
