@@ -51,8 +51,6 @@ PACKAGES_TO_REMOVE=(
     "app-portage/eix"
     "app-portage/gentoolkit"
     "app-portage/gentoopm"
-    "app-text/docbook-xsl-stylesheets"
-    "app-text/docbook-xml-dtd"
 )
 
 FILES_TO_REMOVE=(
