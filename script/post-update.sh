@@ -26,7 +26,6 @@ PACKAGES_TO_REMOVE=(
     "x11-apps/xset"
     "x11-themes/hicolor-icon-theme"
     "media-libs/tiff"
-    "x11-libs/pixman"
     "media-libs/jbig2dec"
     "dev-libs/libcroco"
     "app-text/qpdf"
