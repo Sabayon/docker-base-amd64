@@ -1,7 +1,6 @@
 #!/bin/bash
 
 PACKAGES_TO_REMOVE=(
-    "sys-devel/llvm"
     "dev-libs/ppl"
     "app-admin/sudo"
     "x11-libs/gtk+:3"
