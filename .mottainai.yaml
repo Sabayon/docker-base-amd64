@@ -1,5 +1,4 @@
 directory: "/"
-source: "https://github.com/Sabayon/docker-base-amd64"
 task: "docker_execute"
 artefact_path: "artifacts"
 storage: "9317096982217158"
