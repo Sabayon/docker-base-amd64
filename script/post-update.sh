@@ -18,6 +18,9 @@ FILES_TO_REMOVE=(
 
    # Cleaning portage metadata cache
    "/usr/portage/metadata"
+   "/usr/portage/profiles"
+   "/var/lib/layman"
+   
    "/var/log/emerge"
    "/var/log/entropy"
    "/etc/zsh"
@@ -65,5 +68,5 @@ equo cleanup
 # Cleanup
 rm -rf "${FILES_TO_REMOVE[@]}"
 
-find /var/lib/layman/sabayon/ -not -name 'sabayon' -not -name 'metadata' -print0 | xargs -0 rm -rf --
-find /var/lib/layman/sabayon-distro/ -not -name 'sabayon-distro' -not -name 'metadata' -print0 | xargs -0 rm -rf --
+mkdir -p /var/lib/layman
+touch /var/lib/layman/make.conf
