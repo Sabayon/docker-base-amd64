@@ -21,8 +21,9 @@ FILES_TO_REMOVE=(
     "/var/log/emerge"
     "/var/log/entropy"
     "/etc/zsh"
-    "/var/lib/layman"
-
+    "/var/lib/layman/sabayon"
+    "/var/lib/layman/sabayon-distro"
+    
     "/post-update.sh"
 
     # cleaning licenses accepted
