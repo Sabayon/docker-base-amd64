@@ -17,11 +17,11 @@ FILES_TO_REMOVE=(
     "/post-upgrade.sh"
 
     # Cleaning portage metadata cache
-    "/usr/portage/metadata/md5-cache/*"
-    "/var/log/emerge/*"
-    "/var/log/entropy/*"
-    "/root/* /root/.*"
+    "/usr/portage/metadata"
+    "/var/log/emerge"
+    "/var/log/entropy"
     "/etc/zsh"
+    "/var/lib/layman"
 
     "/post-update.sh"
 
