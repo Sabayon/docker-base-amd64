@@ -9,6 +9,6 @@ script:
    - source storage/env
    - "curl -s https://api.github.com/repos/mudler/docker-companion/releases/latest | grep 'browser_download_url.*amd64' | cut -d : -f 2,3 | tr -d \\\" | wget -i - -O docker-companion; chmod a+x docker-companion"
    - docker build --no-cache -t sabayon/base-amd64 .
-   - ./docker-companion squash --remove sabayon/base-amd64
+   - ./docker-companion squash sabayon/base-amd64
    - docker login -u $DOCKER_USER -p $DOCKER_PASS
    - docker push sabayon/base-amd64
