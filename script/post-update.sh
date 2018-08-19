@@ -9,25 +9,23 @@ FILES_TO_REMOVE=(
    "/usr/portage/licenses"
    "/etc/entropy/packages/license.accept"
    "/equo-rescue-generate.exp"
-    "/equo.sql"
-    "/generate-equo-db.sh"
-    "/post-upgrade.sh"
-    "/sabayon-configuration-build.sh"
-    "/sabayon-configuration.sh"
-    "/post-upgrade.sh"
+   "/equo.sql"
+   "/generate-equo-db.sh"
+   "/post-upgrade.sh"
+   "/sabayon-configuration-build.sh"
+   "/sabayon-configuration.sh"
+   "/post-upgrade.sh"
 
-    # Cleaning portage metadata cache
-    "/usr/portage/metadata"
-    "/var/log/emerge"
-    "/var/log/entropy"
-    "/etc/zsh"
-    "/var/lib/layman/sabayon"
-    "/var/lib/layman/sabayon-distro"
-    
-    "/post-update.sh"
+   # Cleaning portage metadata cache
+   "/usr/portage/metadata"
+   "/var/log/emerge"
+   "/var/log/entropy"
+   "/etc/zsh"
 
-    # cleaning licenses accepted
-    "/usr/portage/licenses"
+   "/post-update.sh"
+
+   # cleaning licenses accepted
+   "/usr/portage/licenses"
 )
 
 # Upgrading packages
@@ -66,3 +64,6 @@ equo cleanup
 
 # Cleanup
 rm -rf "${FILES_TO_REMOVE[@]}"
+
+find /var/lib/layman/sabayon/ -not -name 'sabayon' -not -name 'metadata' -print0 | xargs -0 rm -rf --
+find /var/lib/layman/sabayon-distro/ -not -name 'sabayon-distro' -not -name 'metadata' -print0 | xargs -0 rm -rf --
