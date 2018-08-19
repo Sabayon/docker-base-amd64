@@ -1,6 +1,21 @@
 #!/bin/bash
 
 PACKAGES_TO_REMOVE=(
+    "x11-themes/hicolor-icon-theme"
+    "gnome-extra/polkit-gnome"
+    "dev-qt/qtcore"
+    "www-client/w3m"
+    "x11-libs/pango"
+    "app-text/mupdf"
+    "x11-libs/libXrandr"
+    "x11-libs/xcb-util"
+    "x11-apps/mkfontdir"
+    "x11-libs/libXi"
+    "x11-misc/shared-mime-info"
+    "x11-misc/util-macros"
+    "x11-themes/gnome-themes-standard"
+    "x11-libs/libXaw"
+    
     "dev-libs/ppl"
     "app-admin/sudo"
     "x11-libs/gtk+:3"
@@ -108,6 +123,8 @@ equo security oscheck --assimilate
 
 # Writing package list file
 equo q list installed -qv > /etc/sabayon-pkglist
+
+cat /etc/sabayon-pkglist
 
 equo cleanup
 
