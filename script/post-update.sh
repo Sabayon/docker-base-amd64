@@ -44,7 +44,7 @@ PACKAGES_TO_REMOVE=($(equo q list installed -qv))
 for i in "${PACKAGES_TO_REMOVE[@]}"
 do
     echo "===== Attempt to remove $i ====="
-    equo rm --deep --configfiles "$i"
+    equo rm --configfiles "$i"
 done
 
 # Remove compilation tools
