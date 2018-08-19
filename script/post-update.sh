@@ -35,7 +35,7 @@ rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/l
 equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo && equo u && \
 echo -5 | equo conf update
 
-PACKAGES_TO_REMOVE=$(equo q list installed -qv)
+PACKAGES_TO_REMOVE=($(equo q list installed -qv))
 
 # Cleanup
 # Handling install/removal of packages specified in env
