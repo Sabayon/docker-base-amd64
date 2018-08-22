@@ -34,7 +34,7 @@ FILES_TO_REMOVE=(
 # Upgrading packages
 
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
-equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo && equo u && \
+equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo dev-lang/perl && equo u && \
 echo -5 | equo conf update
 
 PACKAGES_TO_REMOVE=($(equo q list installed -qv))
