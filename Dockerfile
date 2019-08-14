@@ -1,6 +1,6 @@
 FROM sabayon/stage3-amd64
 
-MAINTAINER mudler <mudler@sabayonlinux.org>
+LABEL maintainer="mudler <mudler@sabayonlinux.org>"
 
 # Set locales to en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
