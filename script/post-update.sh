@@ -15,6 +15,7 @@ FILES_TO_REMOVE=(
    "/sabayon-configuration-build.sh"
    "/sabayon-configuration.sh"
    "/post-upgrade.sh"
+   "/usr/bin/sabayon-brokenlinks"
 
    # Cleaning portage metadata cache
    "/usr/portage/metadata"
@@ -31,11 +32,27 @@ FILES_TO_REMOVE=(
    "/usr/portage/licenses"
 )
 
+export ETP_NONINTERACTIVE=1
+
+check_brokenlinks () {
+
+  wget https://raw.githubusercontent.com/Sabayon/devkit/broken-links/sabayon-brokenlinks -O /usr/bin/sabayon-brokenlinks
+  chmod a+x /usr/bin/sabayon-brokenlinks
+
+  equo i app-portage/gentoolkit app-portage/portage-utils
+
+  sabayon-brokenlinks --force-manual
+
+  equo rm app-portage/gentoolkit app-portage/portage-utils dev-libs/iniparser
+}
+
 # Upgrading packages
 
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
 equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo dev-lang/perl && equo u && \
 echo -5 | equo conf update
+
+check_brokenlinks
 
 PACKAGES_TO_REMOVE=($(equo q list installed -qv))
 
