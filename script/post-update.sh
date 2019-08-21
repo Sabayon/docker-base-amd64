@@ -39,11 +39,7 @@ check_brokenlinks () {
   wget https://raw.githubusercontent.com/Sabayon/devkit/broken-links/sabayon-brokenlinks -O /usr/bin/sabayon-brokenlinks
   chmod a+x /usr/bin/sabayon-brokenlinks
 
-  equo i app-portage/gentoolkit app-portage/portage-utils
-
   sabayon-brokenlinks --force-manual
-
-  equo rm app-portage/gentoolkit app-portage/portage-utils dev-libs/iniparser
 }
 
 # Upgrading packages
