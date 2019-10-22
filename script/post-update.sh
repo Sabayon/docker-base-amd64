@@ -36,10 +36,10 @@ export ETP_NONINTERACTIVE=1
 
 check_brokenlinks () {
 
-  wget https://raw.githubusercontent.com/Sabayon/devkit/broken-links/sabayon-brokenlinks -O /usr/bin/sabayon-brokenlinks
+  https://raw.githubusercontent.com/Sabayon/devkit/develop/sabayon-brokenlinks -O /usr/bin/sabayon-brokenlinks
   chmod a+x /usr/bin/sabayon-brokenlinks
 
-  sabayon-brokenlinks --force-manual
+  sabayon-brokenlinks --force
 }
 
 # Upgrading packages
