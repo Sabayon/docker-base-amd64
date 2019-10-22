@@ -40,6 +40,8 @@ check_brokenlinks () {
   chmod a+x /usr/bin/sabayon-brokenlinks
 
   sabayon-brokenlinks --force
+
+  rm /usr/bin/sabayon-brokenlinks
 }
 
 # Upgrading packages
