@@ -36,7 +36,7 @@ export ETP_NONINTERACTIVE=1
 
 check_brokenlinks () {
 
-  https://raw.githubusercontent.com/Sabayon/devkit/develop/sabayon-brokenlinks -O /usr/bin/sabayon-brokenlinks
+  wget https://raw.githubusercontent.com/Sabayon/devkit/develop/sabayon-brokenlinks -O /usr/bin/sabayon-brokenlinks
   chmod a+x /usr/bin/sabayon-brokenlinks
 
   sabayon-brokenlinks --force
