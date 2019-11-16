@@ -44,11 +44,56 @@ check_brokenlinks () {
   rm /usr/bin/sabayon-brokenlinks
 }
 
+update_mirrors_list () {
+
+  wget https://raw.githubusercontent.com/Sabayon/sbi-tasks/master/infra/mirrors.yml -O /tmp/mirrors.yml
+  wget https://raw.githubusercontent.com/Sabayon/sbi-tasks/master/infra/scripts/sabayon-repo-generator -O /tmp/sabayon-repo-generator
+  chmod a+x /tmp/sabayon-repo-generator
+
+  local f=""
+  local descr=""
+  local name=""
+  local reposdir="/etc/entropy/repositories.conf.d"
+  local repofiles=(
+    "entropy_sabayon-limbo"
+    "entropy_sabayonlinux.org"
+    "entropy_sabayon-weekly"
+  )
+
+  for repo in ${repofiles[@]} ; do
+    if [ -e "${reposdir}/${repo}" ] ; then
+      f=${reposdir}/${repo}
+    else
+      f=${reposdir}/_${repo}
+    fi
+
+    if [[ ${repo} =~ .*limbo* ]] ; then
+      descr="Sabayon Limbo Testing Repository"
+    else
+      descr="Sabayon Linux Official Repository"
+    fi
+
+    name=${repo//entropy_/}
+
+    /tmp/sabayon-repo-generator --mirror-file /tmp/mirrors.yml --descr "${descr}" --name "${name}" --to "${f}"
+
+  done
+
+  rm -v /tmp/sabayon-repo-generator
+  rm -v /tmp/mirrors.yml
+}
+
 # Upgrading packages
 
-rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
+rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && \
+ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
 equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo dev-lang/perl && equo u && \
 echo -5 | equo conf update
+
+# Update mirrors
+equo i shyaml
+update_mirrors_list
+equo rm shyaml
 
 check_brokenlinks
 
