@@ -97,6 +97,9 @@ equo rm shyaml
 
 check_brokenlinks
 
+# Reinstall again perl for fix upgrade of perl
+equo i dev-lang/perl --nodeps
+
 PACKAGES_TO_REMOVE=($(equo q list installed -qv))
 
 # Cleanup
