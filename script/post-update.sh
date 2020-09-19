@@ -87,7 +87,8 @@ update_mirrors_list () {
 
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && \
 ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
-equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo dev-lang/perl && equo u && \
+equo up && equo upgrade
+#equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo dev-lang/perl && equo u && \
 echo -5 | equo conf update
 
 # Update mirrors
@@ -99,6 +100,9 @@ check_brokenlinks
 
 # Reinstall again perl for fix upgrade of perl
 equo i dev-lang/perl --nodeps
+
+# This fix broken packages related to broken links
+equo security oscheck --reinstall
 
 PACKAGES_TO_REMOVE=($(equo q list installed -qv))
 
