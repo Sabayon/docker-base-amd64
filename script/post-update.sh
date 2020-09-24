@@ -132,6 +132,9 @@ cat /etc/sabayon-pkglist
 
 equo cleanup
 
+# Set python3.7 as default
+eselect python set python3.7
+
 # Cleanup
 rm -rf "${FILES_TO_REMOVE[@]}"
 
