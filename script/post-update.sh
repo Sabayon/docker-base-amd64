@@ -85,9 +85,14 @@ update_mirrors_list () {
 
 # Upgrading packages
 
+
 rsync -av "rsync://rsync.at.gentoo.org/gentoo-portage/licenses/" "/usr/portage/licenses/" && \
 ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept && \
-equo up && equo upgrade
+equo up
+
+equo i --nodeps sys-libs/glibc dev-libs/openssl --relaxed
+
+equo upgrade
 #equo up && equo i --nodeps sys-apps/portage sys-apps/entropy app-admin/equo dev-lang/perl && equo u && \
 echo -5 | equo conf update
 
